@@ -3,7 +3,7 @@
 
 An architectural tool for Android based on MVVM pattern.
 
-###What's MVVM?  
+### What's MVVM?  
 Model-view-viewmodel (MVVM) is a software architectural pattern. [Wiki](https://en.wikipedia.org/wiki/Model-view-viewmodel)  
 The MVVM pattern helps you to cleanly separate the business 
 and presentation logic of your application from its user interface (UI). 
@@ -24,32 +24,33 @@ and aggregating data as necessary for display in the view.
   
 ![The MVVM classes and their interactions](images/mvvm-classes-and-interactions.png)  
 
-###Model
-Business Logic and Data
+### Model
+The model in the MVVM pattern encapsulates business logic and data. 
+* Accessing the Network
+* Database CRUD
+* Read and Write Files
+* Accessing SharedPreferences
+* Other non-visiual Business Logic
 
-* NetWork
-* Database crud
-* File I/O
-* SharedPreferences
-
-###View
+### View
 UI
-
 * XML Layout
 * Styles
 
 UI Logic(Code Behind)
-
 * Activity/Fragment
+* Animations or Transitions
 * Showing Dialogs, Toasts, Snackbars
 * Starting Activities
 * Handling Menu
 * Handling permissions
 * Other Android specific stuff & methods which require reference to the Activity Context
+* Other visual behavior that is difficult to express in XML
 
-###ViewModel
+### ViewModel
 Presentation Logic
-
+* Properties
+* Commands
 * Exposing state (progress, error, etc.)
 * Exposing data
 * Handling visibility
