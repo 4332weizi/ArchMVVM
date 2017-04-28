@@ -30,7 +30,7 @@ The model in the MVVM pattern encapsulates business logic and data.
 * Database CRUD
 * Read and Write Files
 * Accessing SharedPreferences
-* Other non-visiual Business Logic
+* Other non-visual Business Logic
 
 ### View
 UI
