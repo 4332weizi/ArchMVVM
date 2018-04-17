@@ -3,16 +3,16 @@ package io.auxo.arch.mvvm.view.fragment;
 import android.databinding.DataBindingUtil;
 import android.databinding.ViewDataBinding;
 import android.os.Bundle;
-import android.support.annotation.LayoutRes;
-import android.support.annotation.NonNull;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import io.auxo.arch.mvvm.view.ViewOwner;
+
 /**
  * @author zhaoweiwei@qk365.com
  */
-public abstract class MvvmFragment<VDB extends ViewDataBinding> extends BaseFragment {
+public abstract class MvvmFragment<VDB extends ViewDataBinding> extends BaseFragment implements ViewOwner<VDB> {
 
     private VDB mViewDataBinding;
 
@@ -26,7 +26,7 @@ public abstract class MvvmFragment<VDB extends ViewDataBinding> extends BaseFrag
         // 注册View点击事件
         registerViewEvents(mViewDataBinding);
         // 订阅ViewModel中的数据变化
-        subscribeViewModelChanges();
+        subscribeViewModelChanges(mViewDataBinding);
         return mViewDataBinding.getRoot();
     }
 
@@ -41,37 +41,8 @@ public abstract class MvvmFragment<VDB extends ViewDataBinding> extends BaseFrag
         binding.executePendingBindings();
     }
 
-    /**
-     * 获取View层布局的layout res
-     *
-     * @return layout res
-     */
-    @LayoutRes
-    protected abstract int getContentLayoutId();
-
-    /**
-     * 通过DataBinding给 {@link #getContentLayoutId()}绑定ViewModel
-     *
-     * @param binding
-     */
-    protected abstract void bindViewModels(@NonNull VDB binding);
-
-    /**
-     * 注册View中的操作交互事件
-     * 将View的操作，反馈给ViewModel
-     * 实现Command
-     *
-     * @param binding
-     */
-    protected abstract void registerViewEvents(@NonNull VDB binding);
-
-    /**
-     * 订阅ViewModel中的数据变化
-     * 实现Notifications
-     */
-    protected abstract void subscribeViewModelChanges();
-
-    protected VDB getViewDataBinding() {
+    @Override
+    public VDB getViewDataBinding() {
         return mViewDataBinding;
     }
 }
