@@ -3,10 +3,11 @@ package ${packageName};
 import android.arch.lifecycle.ViewModelProviders;
 import android.support.annotation.NonNull;
 
-<#if layoutName?starts_with('activity')>
-  <#assign bindingClassName="Activity${layoutToActivity(layoutName)?replace('Activity$','','r')}Binding">
+<#if generateLayout>
+    <#assign bindingClassName="${layoutName?replace('_',' ')?capitalize?replace(' ','')}Binding">
 <#else>
-  <#assign bindingClassName="${layoutToActivity(layoutName)?replace('Activity$','','r')}Binding">
+import android.databinding.ViewDataBinding;
+  <#assign bindingClassName="ViewDataBinding">
 </#if>
 import ${superClassFqcn};
 <#if applicationPackage??>
@@ -42,7 +43,7 @@ public class ${activityClass} extends ${superClass}<${bindingClassName}>{
     }
 
     @Override
-    public void subscribeViewModelChanges(@NonNull ${bindingClassName} binding) {
+    public void subscribeViewModelChanges() {
 
     }
 }

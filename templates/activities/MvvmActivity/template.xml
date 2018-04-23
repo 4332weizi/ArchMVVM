@@ -5,7 +5,7 @@
     name="MVVM Activity"
     minApi="9"
     minBuildApi="14"
-    description="Creates a new activity implement MVVM pattern">
+    description="Creates a new Activity implement MVVM pattern">
 
     <category value="Activity" />
     <formfactor value="Mobile" />
