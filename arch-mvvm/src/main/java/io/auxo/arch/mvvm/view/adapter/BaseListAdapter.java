@@ -1,12 +1,10 @@
 package io.auxo.arch.mvvm.view.adapter;
 
-import android.view.View;
-import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 
 import java.util.List;
 
-public abstract class BaseListViewAdapter<T> extends BaseAdapter {
+public abstract class BaseListAdapter<T> extends BaseAdapter {
 
     private List<T> mData;
 
