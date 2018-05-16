@@ -1,0 +1,63 @@
+<?xml version="1.0"?>
+<template
+    format="5"
+    revision="3"
+    name="MVVMFragment"
+    description="Creates a new Fragment implement MVVM pattern."
+    minApi="7"
+    minBuildApi="8">
+
+    <category value="Fragment" />
+
+    <dependency name="android-support-v4" revision="8" />
+
+    <parameter
+        id="className"
+        name="Fragment Name"
+        type="string"
+        constraints="class|nonempty|unique"
+        default="MainFragment"
+        help="The name of the fragment class to create" />
+
+    <parameter
+        id="includeLayout"
+        name="Create layout XML?"
+        type="boolean"
+        default="true"
+        help="Generate a layout XML for the fragment" />
+
+    <parameter
+        id="fragmentName"
+        name="Fragment Layout Name"
+        type="string"
+        constraints="layout|nonempty|unique"
+        default="fragment_blank"
+        visibility="includeLayout"
+        suggest="fragment_${classToResource(className)}"
+        help="The name of the layout to create" />
+
+    <parameter
+          id="generateViewModel"
+          name="Generate ViewModel class"
+          type="boolean"
+          default="true"
+          help="If true, a ViewModel class will be generated" />
+
+    <parameter
+        id="viewModelName"
+        name="ViewModel Name"
+        type="string"
+        constraints="class|unique|nonempty"
+        suggest="${className?replace('Fragment$','','r')}ViewModel"
+        default="MainViewModel"
+        visibility="generateViewModel"
+        help="The name of the ViewModel to create for the activity" />
+
+    <thumbs>
+        <thumb>template_mvvm_fragment.png</thumb>
+    </thumbs>
+
+    <globals file="globals.xml.ftl" />
+    <execute file="recipe.xml.ftl" />
+
+</template>
