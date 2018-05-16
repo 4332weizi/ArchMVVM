@@ -22,32 +22,26 @@ public interface ViewOwner<VDB extends ViewDataBinding> {
 
     /**
      * 通过DataBinding给 {@link #getContentLayoutId()}绑定ViewModel
-     *
-     * @param binding
      */
-    void bindViewModels(@NonNull VDB binding);
+    void bindViewModels();
 
     /**
      * 注册View中的操作交互事件
      * 将View的操作，反馈给ViewModel
      * 实现Command
-     *
-     * @param binding
      */
-    void registerViewEvents(@NonNull VDB binding);
+    void registerViewEvents();
 
     /**
      * 订阅ViewModel中的数据变化
      * 实现Notifications
-     *
-     * @param binding
      */
-    void subscribeViewModelChanges(@NonNull VDB binding);
+    void subscribeViewModelChanges();
 
     /**
      * 获取View的ViewDataBinding
      *
      * @return VDB
      */
-    VDB getViewDataBinding();
+    VDB getBinding();
 }
