@@ -9,7 +9,7 @@ import android.arch.lifecycle.ViewModelProviders;
 import android.support.annotation.NonNull;
 
 <#if includeLayout>
-    <#assign bindingClassName="${layoutName?replace('_',' ')?capitalize?replace(' ','')}Binding">
+    <#assign bindingClassName="${fragmentName?replace('_',' ')?capitalize?replace(' ','')}Binding">
 <#else>
 import android.databinding.ViewDataBinding;
   <#assign bindingClassName="ViewDataBinding">
