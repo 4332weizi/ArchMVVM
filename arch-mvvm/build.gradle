@@ -31,6 +31,7 @@ dependencies {
     // Support Library
     implementation "com.android.support:appcompat-v7:$versions.supportLibrary"
     implementation "com.android.support:support-v4:$versions.supportLibrary"
+    implementation "com.android.support:recyclerview-v7:$versions.supportLibrary"
 
     // Test
     testImplementation "junit:junit:$versions.junit"

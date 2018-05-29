@@ -1,4 +1,4 @@
-package io.auxo.arch.mvvm.viewmodel;
+package io.auxo.arch.mvvm.viewmodel.command;
 
 public class Pair<F, S> {
 

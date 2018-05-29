@@ -3,10 +3,16 @@ package io.auxo.arch.mvvm.view.adapter;
 import android.view.View;
 import android.view.ViewGroup;
 
+import java.util.List;
+
 import io.auxo.arch.mvvm.view.ViewOwner;
 import io.auxo.arch.mvvm.view.ViewOwnerHelper;
 
 public abstract class MvvmListAdapter<T> extends BaseListAdapter<T> {
+
+    public MvvmListAdapter(List<T> items) {
+        super(items);
+    }
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
