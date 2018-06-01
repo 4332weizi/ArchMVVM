@@ -1,8 +1,8 @@
 package io.auxo.arch.mvvm.view.activity;
 
-import android.databinding.DataBindingUtil;
 import android.databinding.ViewDataBinding;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 
 import io.auxo.arch.mvvm.view.ViewOwner;
 import io.auxo.arch.mvvm.view.ViewOwnerHelper;
@@ -17,20 +17,21 @@ public abstract class MvvmActivity<VDB extends ViewDataBinding> extends BaseActi
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        mViewDataBinding = DataBindingUtil.setContentView(this, getContentLayoutId());
-        // 绑定ViewModel
-        bindViewModels();
-        // 注册View点击事件
-        registerViewEvents();
-        // 订阅ViewModel中的数据变化
-        subscribeViewModelChanges();
+        ViewOwnerHelper.onActivityCreate(this, this);
+    }
+
+    @Override
+    public void onBindingCreated(@NonNull VDB binding) {
+        mViewDataBinding = binding;
+        ViewOwnerHelper.onBind(this);
     }
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        ViewOwnerHelper.onDestroy(this);
+        ViewOwnerHelper.onViewDestroy(this);
     }
+
 
     public VDB getBinding() {
         return mViewDataBinding;

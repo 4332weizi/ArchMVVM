@@ -7,7 +7,7 @@ import android.support.annotation.NonNull;
 /**
  * MVVM中View层接口
  *
- * @param <VDB>
+ * @param <VDB> type of ViewDataBinding
  * @author Victor Chiu
  */
 public interface ViewOwner<VDB extends ViewDataBinding> {
@@ -19,6 +19,11 @@ public interface ViewOwner<VDB extends ViewDataBinding> {
      */
     @LayoutRes
     int getContentLayoutId();
+
+    /**
+     * Binding被创建后调用该方法
+     */
+    void onBindingCreated(@NonNull VDB binding);
 
     /**
      * 通过DataBinding给 {@link #getContentLayoutId()}绑定ViewModel
@@ -39,9 +44,9 @@ public interface ViewOwner<VDB extends ViewDataBinding> {
     void subscribeViewModelChanges();
 
     /**
-     * 获取View的ViewDataBinding
+     * 获取View的数据绑定
      *
-     * @return VDB
+     * @return
      */
     VDB getBinding();
 }

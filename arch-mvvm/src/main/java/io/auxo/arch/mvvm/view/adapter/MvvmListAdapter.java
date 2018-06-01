@@ -1,5 +1,8 @@
 package io.auxo.arch.mvvm.view.adapter;
 
+import android.databinding.ViewDataBinding;
+import android.support.annotation.NonNull;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
@@ -17,20 +20,47 @@ public abstract class MvvmListAdapter<T> extends BaseListAdapter<T> {
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
 
-        ViewOwner viewOwner;
+        ItemViewOwner itemViewOwner;
 
         if (convertView == null) {
-            viewOwner = createViewOwner(position, convertView, parent);
-            convertView = viewOwner.getBinding().getRoot();
-            convertView.setTag(viewOwner);
+            itemViewOwner = onCreateViewOwner(parent, getItem(position), position);
+            ViewOwnerHelper.onCreateView(LayoutInflater.from(parent.getContext()), itemViewOwner, parent, false);
         } else {
-            viewOwner = (ViewOwner) convertView.getTag();
+            itemViewOwner = (ItemViewOwner) convertView.getTag();
         }
 
-        ViewOwnerHelper.onCreate(viewOwner);
+        ViewOwnerHelper.onBind(itemViewOwner);
 
-        return convertView;
+        return itemViewOwner.getBinding().getRoot();
     }
 
-    public abstract ViewOwner createViewOwner(int position, View convertView, ViewGroup parent);
+    /**
+     * 创建ViewOwner
+     *
+     * @param parent
+     * @param item
+     * @param position
+     * @return
+     */
+    protected abstract ItemViewOwner onCreateViewOwner(ViewGroup parent, T item, int position);
+
+    public abstract class ItemViewOwner<VDB extends ViewDataBinding> implements ViewOwner<VDB> {
+
+        private VDB mViewDataBinding;
+
+        @Override
+        public void bindViewModels() {
+        }
+
+        @Override
+        public void onBindingCreated(@NonNull VDB binding) {
+            mViewDataBinding = binding;
+        }
+
+        @Override
+        public VDB getBinding() {
+            return mViewDataBinding;
+        }
+
+    }
 }

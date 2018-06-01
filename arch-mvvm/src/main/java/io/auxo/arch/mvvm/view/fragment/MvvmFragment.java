@@ -3,6 +3,7 @@ package io.auxo.arch.mvvm.view.fragment;
 import android.databinding.DataBindingUtil;
 import android.databinding.ViewDataBinding;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -20,15 +21,20 @@ public abstract class MvvmFragment<VDB extends ViewDataBinding> extends BaseFrag
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        mViewDataBinding = DataBindingUtil.inflate(inflater, getContentLayoutId(), container, false);
-        ViewOwnerHelper.onCreate(this);
-        return mViewDataBinding.getRoot();
+        ViewOwnerHelper.onFragmentCreateView(inflater, this, container, false);
+        return getBinding().getRoot();
+    }
+
+    @Override
+    public void onBindingCreated(@NonNull VDB binding) {
+        mViewDataBinding = binding;
+        ViewOwnerHelper.onBind(this);
     }
 
     @Override
     public void onDestroy() {
         super.onDestroy();
-        ViewOwnerHelper.onDestroy(this);
+        ViewOwnerHelper.onViewDestroy(this);
     }
 
     @Override
