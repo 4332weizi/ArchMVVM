@@ -23,17 +23,23 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+
+    compileOptions {
+        targetCompatibility versions.targetCompatibility
+        sourceCompatibility versions.sourceCompatibility
+    }
 }
 
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
-    
+
     // Support Library
     implementation "com.android.support:appcompat-v7:$versions.supportLibrary"
     implementation "com.android.support:support-v4:$versions.supportLibrary"
     implementation "com.android.support.constraint:constraint-layout:$versions.constraint"
-    
+
     // Test Library
+    implementation 'com.android.support.constraint:constraint-layout:1.1.2'
     testImplementation "junit:junit:$versions.junit"
     androidTestImplementation "com.android.support.test:runner:$versions.runner"
     androidTestImplementation "com.android.support.test.espresso:espresso-core:$versions.espresso_core"
