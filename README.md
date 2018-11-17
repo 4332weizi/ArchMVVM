@@ -1,4 +1,4 @@
- ArchMVVM
+ArchMVVM
 ============
 
 An architectural tool for Android based on MVVM pattern.
@@ -22,7 +22,8 @@ and coordinates updates to the model, converting, validating,
 and aggregating data as necessary for display in the view.  
 [Implementing the MVVM Pattern](https://msdn.microsoft.com/en-us/library/gg405484.aspx)
   
-![The MVVM classes and their interactions](images/mvvm-classes-and-interactions.png)  
+![The MVVM classes and their interactions](images/mvvm-classes-and-interactions.png) [![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2F4332weizi%2FArchMVVM.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2F4332weizi%2FArchMVVM?ref=badge_shield)
+ 
 
 ### Model
 The model in the MVVM pattern encapsulates business logic and data. 
@@ -81,3 +82,6 @@ License
     LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
     OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
     SOFTWARE.
+
+
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2F4332weizi%2FArchMVVM.svg?type=large)](https://app.fossa.io/projects/git%2Bgithub.com%2F4332weizi%2FArchMVVM?ref=badge_large)
