@@ -4,4 +4,7 @@
     <dimen name="sizeTextPrimary">16sp</dimen>
     <dimen name="sizeTextSecondary">14sp</dimen>
     <dimen name="sizeTextThirdly">12sp</dimen>
+    <dimen name="smallRadius">5dp</dimen>
+    <dimen name="middleRadius">10dp</dimen>
+    <dimen name="largeRadius">15dp</dimen>
 </resources>

@@ -1,44 +1,63 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/colorPrimary"
-    tools:context="io.auxo.arch.sample.SplashActivity">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <LinearLayout
-        android:id="@+id/splash_logo"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:gravity="center"
-        android:orientation="horizontal"
-        android:paddingTop="20dp"
-        android:paddingBottom="40dp">
+    <data>
 
-        <ImageView
-            android:id="@+id/splash_mark"
-            android:layout_width="48dp"
-            android:layout_height="48dp"
-            android:elevation="10dp"
-            android:scaleType="fitCenter"
-            android:src="@drawable/ic_github_mark_light" />
+    </data>
 
-        <ImageView
-            android:layout_width="108dp"
-            android:layout_height="48dp"
-            android:layout_alignParentBottom="true"
-            android:layout_centerHorizontal="true"
-            android:layout_marginLeft="20dp"
-            android:src="@drawable/ic_github_logo_light" />
-
-    </LinearLayout>
-
-    <ImageView
+    <RelativeLayout
+        android:id="@+id/splash_root"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_above="@id/splash_logo"
-        android:scaleType="fitCenter"
-        android:src="@drawable/bg_welcome" />
+        android:background="@color/colorPrimary"
+        tools:context="io.auxo.arch.sample.ui.SplashActivity">
 
-</RelativeLayout>
+        <LinearLayout
+            android:id="@+id/splash_logo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="20dp"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:padding="20dp"
+            android:transitionName="github_logo">
+
+            <ImageView
+                android:id="@+id/splash_mark"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:elevation="10dp"
+                android:scaleType="fitCenter"
+                android:src="@drawable/ic_github_mark_light" />
+
+            <ImageView
+                android:layout_width="108dp"
+                android:layout_height="48dp"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"
+                android:layout_marginLeft="20dp"
+                android:src="@drawable/ic_github_logo_light" />
+
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/splash_welcome"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@id/splash_logo"
+            android:scaleType="fitCenter"
+            android:src="@drawable/bg_welcome" />
+
+        <FrameLayout
+            android:id="@+id/splash_login"
+            android:layout_width="match_parent"
+            android:layout_height="400dp"
+            android:layout_alignParentBottom="true"
+            android:foregroundGravity="bottom">
+
+        </FrameLayout>
+
+    </RelativeLayout>
+</layout>

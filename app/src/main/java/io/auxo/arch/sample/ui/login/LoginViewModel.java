@@ -1,4 +1,4 @@
-package io.auxo.arch.sample.login;
+package io.auxo.arch.sample.ui.login;
 
 import android.arch.lifecycle.ViewModel;
 

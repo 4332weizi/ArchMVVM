@@ -11,5 +11,9 @@
     <color name="colorTextSecondaryInverse">#bfffffff</color>
     <color name="colorTextTertiaryInverse">#d1d5da</color>
     <color name="colorTextHint">#d1d5da</color>
-
+    <color name="colorWhiteRipple">#c0c0c0</color>
+    <color name="colorPrimaryRipple">#181a1c</color>
+    <color name="colorPrimaryDarkRipple">#181a1c</color>
+    <color name="colorAccentRipple">#005b9d</color>
+    <color name="colorWindowBackgroundRipple">#bcbcbc</color>
 </resources>
