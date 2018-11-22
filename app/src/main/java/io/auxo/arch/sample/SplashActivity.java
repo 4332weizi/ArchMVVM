@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.os.Handler;
 
 import io.auxo.arch.mvvm.view.activity.BaseActivity;
+import io.auxo.arch.sample.login.LoginActivity;
 
 public class SplashActivity extends BaseActivity {
 
@@ -14,8 +15,8 @@ public class SplashActivity extends BaseActivity {
         setContentView(R.layout.activity_splash);
 
         new Handler().postDelayed(() -> {
-            startActivity(new Intent(this, MainActivity.class));
+            startActivity(new Intent(this, LoginActivity.class));
             finish();
-        }, 2000);
+        }, 3000);
     }
 }

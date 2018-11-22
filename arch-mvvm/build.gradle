@@ -33,6 +33,12 @@ dependencies {
     implementation "com.android.support:support-v4:$versions.supportLibrary"
     implementation "com.android.support:recyclerview-v7:$versions.supportLibrary"
 
+    // Architecture Components
+    api "android.arch.persistence.room:runtime:$versions.room"
+    annotationProcessor "android.arch.persistence.room:compiler:$versions.room"
+    api "android.arch.lifecycle:extensions:$versions.lifecycle"
+    annotationProcessor "android.arch.lifecycle:compiler:$versions.lifecycle"
+
     // Test
     testImplementation "junit:junit:$versions.junit"
     androidTestImplementation "com.android.support.test:runner:$versions.runner"

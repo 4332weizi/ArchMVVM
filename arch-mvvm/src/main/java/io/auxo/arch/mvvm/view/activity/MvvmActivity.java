@@ -32,7 +32,6 @@ public abstract class MvvmActivity<VDB extends ViewDataBinding> extends BaseActi
         ViewOwnerHelper.onViewDestroy(this);
     }
 
-
     public VDB getBinding() {
         return mViewDataBinding;
     }
