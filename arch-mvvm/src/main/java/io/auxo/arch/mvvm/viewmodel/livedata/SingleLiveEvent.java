@@ -8,6 +8,8 @@ import android.util.Log;
 
 import java.util.concurrent.atomic.AtomicBoolean;
 
+import io.auxo.arch.mvvm.utils.ThreadUtil;
+
 /**
  * @author Victor Chiu
  */
@@ -39,8 +41,15 @@ public class SingleLiveEvent<T> extends LiveEvent<T> {
     @Override
     @MainThread
     public void setValue(@Nullable T t) {
-        mPending.set(true);
-        super.setValue(t);
+        if (ThreadUtil.isMainThread()) {
+            mPending.set(true);
+            super.setValue(t);
+        } else {
+            postValue(t);
+        }
     }
 
+    public void call() {
+        setValue(null);
+    }
 }

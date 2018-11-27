@@ -45,4 +45,5 @@ dependencies {
     androidTestImplementation "com.android.support.test.espresso:espresso-core:$versions.espresso_core"
 
     implementation project(':arch-mvvm')
+    implementation project(':github-api')
 }

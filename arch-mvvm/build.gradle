@@ -28,9 +28,9 @@ dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
     // Support Library
-    implementation "com.android.support:appcompat-v7:$versions.supportLibrary"
-    implementation "com.android.support:support-v4:$versions.supportLibrary"
-    implementation "com.android.support:recyclerview-v7:$versions.supportLibrary"
+    api "com.android.support:appcompat-v7:$versions.supportLibrary"
+    api "com.android.support:support-v4:$versions.supportLibrary"
+    api "com.android.support:recyclerview-v7:$versions.supportLibrary"
 
     // Architecture Components
     api "android.arch.persistence.room:runtime:$versions.room"
@@ -42,4 +42,8 @@ dependencies {
     testImplementation "junit:junit:$versions.junit"
     androidTestImplementation "com.android.support.test:runner:$versions.runner"
     androidTestImplementation "com.android.support.test.espresso:espresso-core:$versions.espresso_core"
+
+    // RxJava & RxAndroid
+    api "io.reactivex.rxjava2:rxjava:$versions.rxjava"
+    api "io.reactivex.rxjava2:rxandroid:$versions.rxandroid"
 }

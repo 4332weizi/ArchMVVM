@@ -1,6 +1,5 @@
 package io.auxo.arch.mvvm.view.fragment;
 
-import android.databinding.DataBindingUtil;
 import android.databinding.ViewDataBinding;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -12,7 +11,7 @@ import io.auxo.arch.mvvm.view.ViewOwner;
 import io.auxo.arch.mvvm.view.ViewOwnerHelper;
 
 /**
- * @author zhaoweiwei@qk365.com
+ * @author Victor Chiu
  */
 public abstract class MvvmFragment<VDB extends ViewDataBinding> extends BaseFragment implements ViewOwner<VDB> {
 
@@ -28,7 +27,6 @@ public abstract class MvvmFragment<VDB extends ViewDataBinding> extends BaseFrag
     @Override
     public void onBindingCreated(@NonNull VDB binding) {
         mViewDataBinding = binding;
-        ViewOwnerHelper.onBind(this);
     }
 
     @Override

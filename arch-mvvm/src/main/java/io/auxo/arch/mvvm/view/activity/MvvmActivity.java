@@ -23,7 +23,6 @@ public abstract class MvvmActivity<VDB extends ViewDataBinding> extends BaseActi
     @Override
     public void onBindingCreated(@NonNull VDB binding) {
         mViewDataBinding = binding;
-        ViewOwnerHelper.onBind(this);
     }
 
     @Override

@@ -4,6 +4,9 @@
 
     <data>
 
+        <variable
+            name="viewModel"
+            type="io.auxo.arch.sample.ui.splash.SplashViewModel" />
     </data>
 
     <RelativeLayout
@@ -11,7 +14,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/colorPrimary"
-        tools:context="io.auxo.arch.sample.ui.SplashActivity">
+        tools:context="io.auxo.arch.sample.ui.splash.SplashActivity">
 
         <LinearLayout
             android:id="@+id/splash_logo"

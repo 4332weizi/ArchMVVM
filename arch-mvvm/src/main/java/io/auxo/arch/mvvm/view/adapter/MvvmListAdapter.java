@@ -29,7 +29,7 @@ public abstract class MvvmListAdapter<T> extends BaseListAdapter<T> {
             itemViewOwner = (ItemViewOwner) convertView.getTag();
         }
 
-        ViewOwnerHelper.onBind(itemViewOwner);
+        ViewOwnerHelper.onBindingCreated(itemViewOwner);
 
         return itemViewOwner.getBinding().getRoot();
     }

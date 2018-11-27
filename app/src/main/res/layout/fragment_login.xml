@@ -30,7 +30,9 @@
                 android:layout_height="wrap_content"
                 android:background="@drawable/bg_white_small_corner"
                 android:hint="Username or email"
+                android:lines="1"
                 android:padding="10dp"
+                android:text="@={viewModel.username}"
                 android:textColor="@color/colorTextPrimary"
                 android:textColorHint="@color/colorTextSecondary" />
 
@@ -40,11 +42,15 @@
                 android:layout_marginTop="10dp"
                 android:background="@drawable/bg_white_small_corner"
                 android:hint="Password"
+                android:inputType="textPassword"
+                android:lines="1"
                 android:padding="10dp"
+                android:text="@={viewModel.password}"
                 android:textColor="@color/colorTextPrimary"
                 android:textColorHint="@color/colorTextSecondary" />
 
             <Button
+                android:id="@+id/login_submit"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
