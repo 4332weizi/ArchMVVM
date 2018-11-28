@@ -6,6 +6,9 @@ import io.auxo.arch.mvvm.view.fragment.MvvmFragment;
 import io.auxo.arch.sample.R;
 import io.auxo.arch.sample.databinding.FragmentLoginBinding;
 
+/**
+ * @author Victor Chiu
+ */
 public class LoginFragment extends MvvmFragment<FragmentLoginBinding> {
 
     @Override

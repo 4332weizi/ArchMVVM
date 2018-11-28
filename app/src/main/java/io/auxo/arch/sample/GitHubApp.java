@@ -4,6 +4,9 @@ import android.app.Application;
 
 import com.github.api.GitHubApi;
 
+/**
+ * @author Victor Chiu
+ */
 public class GitHubApp extends Application {
 
     private static GitHubApp mInstance;

@@ -7,6 +7,9 @@ import io.auxo.arch.mvvm.viewmodel.livedata.SingleLiveEvent;
 import io.auxo.arch.sample.GitHubApp;
 import io.auxo.arch.sample.UserManager;
 
+/**
+ * @author Victor Chiu
+ */
 public class SplashViewModel extends ViewModel {
 
     private final SingleLiveEvent mNavigateLoginEvent = new SingleLiveEvent<>();

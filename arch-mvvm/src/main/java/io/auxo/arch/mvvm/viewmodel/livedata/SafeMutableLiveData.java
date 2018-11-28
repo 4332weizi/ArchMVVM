@@ -5,9 +5,10 @@ import android.arch.lifecycle.MutableLiveData;
 import io.auxo.arch.mvvm.utils.ThreadUtil;
 
 /**
+ * call setValue from outside MainThread
+ *
  * @author Victor Chiu
  */
-
 public class SafeMutableLiveData<T> extends MutableLiveData<T> {
 
     @Override
@@ -18,5 +19,4 @@ public class SafeMutableLiveData<T> extends MutableLiveData<T> {
             postValue(value);
         }
     }
-
 }

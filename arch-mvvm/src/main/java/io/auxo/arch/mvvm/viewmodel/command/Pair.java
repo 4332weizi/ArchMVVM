@@ -1,5 +1,8 @@
 package io.auxo.arch.mvvm.viewmodel.command;
 
+/**
+ * @author Victor Chiu
+ */
 public class Pair<F, S> {
 
     public F first;

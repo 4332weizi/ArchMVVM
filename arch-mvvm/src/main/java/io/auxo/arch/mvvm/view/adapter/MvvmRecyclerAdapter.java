@@ -6,6 +6,9 @@ import android.view.ViewGroup;
 
 import java.util.List;
 
+/**
+ * @author Victor Chiu
+ */
 public class MvvmRecyclerAdapter<T> extends RecyclerView.Adapter {
 
     private List<T> items;

@@ -9,7 +9,7 @@ import java.net.UnknownHostException;
 import retrofit2.HttpException;
 
 /**
- * @author zhaoweiwei@qk365.com
+ * @author Victor Chiu
  */
 public class ErrorParser {
 

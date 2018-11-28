@@ -9,6 +9,9 @@ import com.github.api.authorization.AuthorizationProvider;
 
 import java.io.UnsupportedEncodingException;
 
+/**
+ * @author Victor Chiu
+ */
 public class AuthorizationManager implements AuthorizationProvider, AuthorizationExpiredCallback {
 
     private final String USER_AUTHORIZATION_FILE_NAME = "user_authorization";

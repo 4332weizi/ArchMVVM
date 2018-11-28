@@ -3,10 +3,12 @@
     <!-- Base application theme. -->
     <style name="AppBaseTheme" parent="Theme.AppCompat">
         <!-- enable window content transitions -->
-        <item name="android:windowContentTransitions">true</item>
+        <item name="android:windowContentTransitions" tools:targetApi="lollipop">true</item>
         <!-- enable overlapping of exiting and entering activities-->
-        <item name="android:windowAllowEnterTransitionOverlap">true</item>
-        <item name="android:windowAllowReturnTransitionOverlap">true</item>
+        <item name="android:windowAllowEnterTransitionOverlap" tools:targetApi="lollipop">true
+        </item>
+        <item name="android:windowAllowReturnTransitionOverlap" tools:targetApi="lollipop">true
+        </item>
     </style>
 
     <style name="AppTheme" parent="AppBaseTheme">
@@ -44,6 +46,11 @@
 
     <style name="AppTheme.Splash" parent="AppTheme.NoTitle.TranslucentStatus">
         <item name="android:windowBackground">@color/colorPrimary</item>
+    </style>
+
+    <style name="AppTheme.TextAppearance.Tab" parent="TextAppearance.Design.Tab">
+        <item name="android:textSize">@dimen/sizeTextPrimary</item>
+        <item name="textAllCaps">false</item>
     </style>
 
 </resources>

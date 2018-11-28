@@ -9,6 +9,9 @@ import com.github.api.model.User;
 import io.reactivex.Observable;
 import io.reactivex.schedulers.Schedulers;
 
+/**
+ * @author Victor Chiu
+ */
 public class UserManager {
 
     private static UserManager mInstance = new UserManager();

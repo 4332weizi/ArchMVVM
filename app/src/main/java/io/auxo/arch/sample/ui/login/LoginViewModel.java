@@ -14,6 +14,9 @@ import io.auxo.arch.sample.GitHubApp;
 import io.auxo.arch.sample.UserManager;
 import retrofit2.HttpException;
 
+/**
+ * @author Victor Chiu
+ */
 public class LoginViewModel extends ViewModel {
 
     public final ObservableField<String> username = new ObservableField<>();
@@ -35,6 +38,8 @@ public class LoginViewModel extends ViewModel {
             GitHubApp.get().getAuthorizationManager().login(username.get(), password.get());
         } catch (UnsupportedEncodingException e) {
             e.printStackTrace();
+            message.setValue("用户名密码格式有误");
+            return;
         }
 
         UserManager.get()
@@ -44,6 +49,7 @@ public class LoginViewModel extends ViewModel {
                             if (throwable instanceof HttpException) {
                                 if (((HttpException) throwable).code() == 401) {
                                     message.setValue("用户名或密码错误");
+                                    return;
                                 }
                             }
                             message.setValue(ErrorParser.parse(throwable));

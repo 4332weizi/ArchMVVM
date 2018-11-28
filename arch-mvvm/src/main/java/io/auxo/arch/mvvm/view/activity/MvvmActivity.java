@@ -10,7 +10,8 @@ import io.auxo.arch.mvvm.view.ViewOwnerHelper;
 /**
  * @author Victor Chiu
  */
-public abstract class MvvmActivity<VDB extends ViewDataBinding> extends BaseActivity implements ViewOwner<VDB> {
+public abstract class MvvmActivity<VDB extends ViewDataBinding> extends BaseActivity
+        implements ViewOwner<VDB> {
 
     protected VDB mViewDataBinding;
 
@@ -25,14 +26,7 @@ public abstract class MvvmActivity<VDB extends ViewDataBinding> extends BaseActi
         mViewDataBinding = binding;
     }
 
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        ViewOwnerHelper.onViewDestroy(this);
-    }
-
     public VDB getBinding() {
         return mViewDataBinding;
     }
-
 }

@@ -6,6 +6,9 @@ import android.widget.BaseAdapter;
 import java.util.Collection;
 import java.util.List;
 
+/**
+ * @author Victor Chiu
+ */
 public abstract class BaseListAdapter<T> extends BaseAdapter {
 
     private List<T> items;

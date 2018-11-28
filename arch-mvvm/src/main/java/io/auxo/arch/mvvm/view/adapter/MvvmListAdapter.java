@@ -11,6 +11,9 @@ import java.util.List;
 import io.auxo.arch.mvvm.view.ViewOwner;
 import io.auxo.arch.mvvm.view.ViewOwnerHelper;
 
+/**
+ * @author Victor Chiu
+ */
 public abstract class MvvmListAdapter<T> extends BaseListAdapter<T> {
 
     public MvvmListAdapter(List<T> items) {
@@ -24,7 +27,7 @@ public abstract class MvvmListAdapter<T> extends BaseListAdapter<T> {
 
         if (convertView == null) {
             itemViewOwner = onCreateViewOwner(parent, getItem(position), position);
-            ViewOwnerHelper.onCreateView(LayoutInflater.from(parent.getContext()), itemViewOwner, parent, false);
+            ViewOwnerHelper.onCreateViewDataBinding(LayoutInflater.from(parent.getContext()), itemViewOwner, parent, false);
         } else {
             itemViewOwner = (ItemViewOwner) convertView.getTag();
         }

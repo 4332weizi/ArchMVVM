@@ -48,8 +48,4 @@ public class SingleLiveEvent<T> extends LiveEvent<T> {
             postValue(t);
         }
     }
-
-    public void call() {
-        setValue(null);
-    }
 }
