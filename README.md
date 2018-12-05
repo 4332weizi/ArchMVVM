@@ -15,7 +15,7 @@ It can also greatly improve code re-use opportunities and
 allows developers and UI designers to more easily collaborate 
 when developing their respective parts of the application.  
 In the MVVM pattern, the view encapsulates the UI and any UI logic, 
-the view model encapsulates presentation logic and state, 
+the view model encapsulates presentation logic and mState, 
 and the model encapsulates business logic and data. The view interacts 
 with the view model through data binding, commands, 
 and change notification events. The view model queries, observes, 
@@ -53,7 +53,7 @@ UI Logic(Code Behind)
 Presentation Logic
 * Properties
 * Commands
-* Exposing state (progress, error, etc.)
+* Exposing mState (progress, error, etc.)
 * Exposing data
 * Handling visibility
 * Handling Extras & Arguments (Bundle)

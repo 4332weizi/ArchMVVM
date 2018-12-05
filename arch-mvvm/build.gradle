@@ -22,6 +22,11 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+
+    compileOptions {
+        targetCompatibility versions.targetCompatibility
+        sourceCompatibility versions.sourceCompatibility
+    }
 }
 
 dependencies {
@@ -37,6 +42,7 @@ dependencies {
     annotationProcessor "android.arch.persistence.room:compiler:$versions.room"
     api "android.arch.lifecycle:extensions:$versions.lifecycle"
     annotationProcessor "android.arch.lifecycle:compiler:$versions.lifecycle"
+    api "android.arch.lifecycle:common-java8:$versions.lifecycle"
 
     // Test
     testImplementation "junit:junit:$versions.junit"

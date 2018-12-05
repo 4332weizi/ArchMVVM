@@ -7,6 +7,7 @@ import android.text.TextUtils;
 
 import java.io.UnsupportedEncodingException;
 
+import io.auxo.arch.mvvm.viewmodel.command.StatefulCommandWrapper;
 import io.auxo.arch.mvvm.viewmodel.livedata.LiveEvent;
 import io.auxo.arch.mvvm.viewmodel.livedata.SingleLiveEvent;
 import io.auxo.arch.sample.ErrorParser;
@@ -25,6 +26,26 @@ public class LoginViewModel extends ViewModel {
     public final SingleLiveEvent<String> message = new SingleLiveEvent<>();
 
     private final LiveEvent loginSuccessEvent = new LiveEvent();
+
+    public final SingleAsyncCommandExecutor login = new SingleAsyncCommandExecutor(new StatefulCommandWrapper() {
+        @Override
+        public void execute() {
+            UserManager.get()
+                    .syncUserFromServer()
+                    .doFinally(() -> checkAndFinish())
+                    .doOnSubscribe(disposable -> checkAndStart())
+                    .subscribe(result -> loginSuccessEvent.call(),
+                            throwable -> {
+                                if (throwable instanceof HttpException) {
+                                    if (((HttpException) throwable).code() == 401) {
+                                        message.setValue("用户名或密码错误");
+                                        return;
+                                    }
+                                }
+                                message.setValue(ErrorParser.parse(throwable));
+                            });
+        }
+    });
 
     public void login() {
         if (TextUtils.isEmpty(username.get())) {

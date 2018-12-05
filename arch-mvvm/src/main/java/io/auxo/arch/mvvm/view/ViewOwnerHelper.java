@@ -1,10 +1,8 @@
 package io.auxo.arch.mvvm.view;
 
 import android.app.Activity;
-import android.arch.lifecycle.Lifecycle;
-import android.arch.lifecycle.LifecycleObserver;
+import android.arch.lifecycle.DefaultLifecycleObserver;
 import android.arch.lifecycle.LifecycleOwner;
-import android.arch.lifecycle.OnLifecycleEvent;
 import android.databinding.DataBindingUtil;
 import android.databinding.ViewDataBinding;
 import android.support.annotation.NonNull;
@@ -76,7 +74,7 @@ public class ViewOwnerHelper {
         Objects.requireNonNull(owner, "ViewOwner must not be null");
     }
 
-    static class ViewLifecycleObserver implements LifecycleObserver {
+    static class ViewLifecycleObserver implements DefaultLifecycleObserver {
 
         private ViewOwner owner;
 
@@ -84,9 +82,9 @@ public class ViewOwnerHelper {
             this.owner = owner;
         }
 
-        @OnLifecycleEvent(Lifecycle.Event.ON_DESTROY)
-        public void onDestroy() {
-            onViewDestroy(owner);
+        @Override
+        public void onDestroy(@NonNull LifecycleOwner owner) {
+            onViewDestroy(this.owner);
         }
     }
 
