@@ -7,6 +7,9 @@ import android.text.TextUtils;
 
 import java.io.UnsupportedEncodingException;
 
+import io.auxo.arch.mvvm.viewmodel.command.Command;
+import io.auxo.arch.mvvm.viewmodel.command.StatefulAsyncCommandWrapper;
+import io.auxo.arch.mvvm.viewmodel.command.StatefulCommand;
 import io.auxo.arch.mvvm.viewmodel.command.StatefulCommandWrapper;
 import io.auxo.arch.mvvm.viewmodel.livedata.LiveEvent;
 import io.auxo.arch.mvvm.viewmodel.livedata.SingleLiveEvent;
@@ -27,13 +30,35 @@ public class LoginViewModel extends ViewModel {
 
     private final LiveEvent loginSuccessEvent = new LiveEvent();
 
-    public final SingleAsyncCommandExecutor login = new SingleAsyncCommandExecutor(new StatefulCommandWrapper() {
+    public final StatefulAsyncCommandWrapper loginCommand = new StatefulAsyncCommandWrapper(new Command() {
+
+        @Override
+        public boolean canExecute() {
+            if (TextUtils.isEmpty(username.get())) {
+                message.setValue("请输入用户名");
+                return false;
+            }
+            if (TextUtils.isEmpty(password.get())) {
+                message.setValue("请输入密码");
+                return false;
+            }
+
+            try {
+                GitHubApp.get().getAuthorizationManager().login(username.get(), password.get());
+            } catch (UnsupportedEncodingException e) {
+                e.printStackTrace();
+                message.setValue("用户名密码格式有误");
+                return false;
+            }
+
+            return true;
+        }
+
         @Override
         public void execute() {
             UserManager.get()
                     .syncUserFromServer()
-                    .doFinally(() -> checkAndFinish())
-                    .doOnSubscribe(disposable -> checkAndStart())
+                    .doFinally(() -> loginCommand.onExecuteFinish())
                     .subscribe(result -> loginSuccessEvent.call(),
                             throwable -> {
                                 if (throwable instanceof HttpException) {
@@ -46,36 +71,6 @@ public class LoginViewModel extends ViewModel {
                             });
         }
     });
-
-    public void login() {
-        if (TextUtils.isEmpty(username.get())) {
-            message.setValue("请输入用户名");
-        }
-        if (TextUtils.isEmpty(password.get())) {
-            message.setValue("请输入密码");
-        }
-
-        try {
-            GitHubApp.get().getAuthorizationManager().login(username.get(), password.get());
-        } catch (UnsupportedEncodingException e) {
-            e.printStackTrace();
-            message.setValue("用户名密码格式有误");
-            return;
-        }
-
-        UserManager.get()
-                .syncUserFromServer()
-                .subscribe(result -> loginSuccessEvent.call(),
-                        throwable -> {
-                            if (throwable instanceof HttpException) {
-                                if (((HttpException) throwable).code() == 401) {
-                                    message.setValue("用户名或密码错误");
-                                    return;
-                                }
-                            }
-                            message.setValue(ErrorParser.parse(throwable));
-                        });
-    }
 
     public LiveData getLoginSuccessEvent() {
         return loginSuccessEvent;

@@ -5,9 +5,9 @@ package io.auxo.arch.mvvm.viewmodel.command;
  *
  * @author Victor Chiu
  */
-public class StatefulAsyncCommandExecutor extends StatefulCommandWrapper {
+public class StatefulAsyncCommandWrapper extends StatefulCommandWrapper {
 
-    public StatefulAsyncCommandExecutor(Command command) {
+    public StatefulAsyncCommandWrapper(Command command) {
         super(command);
     }
 
@@ -16,5 +16,9 @@ public class StatefulAsyncCommandExecutor extends StatefulCommandWrapper {
         if (checkAndStart()) {
             onExecuteCommand();
         }
+    }
+
+    public void onExecuteFinish(){
+        checkAndFinish();
     }
 }

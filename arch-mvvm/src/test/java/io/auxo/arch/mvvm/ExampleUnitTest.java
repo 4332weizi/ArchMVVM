@@ -26,7 +26,7 @@ public class ExampleUnitTest {
         ((Command) () -> value = 1).execute();
         assertEquals(value, 1);
         CyclicBarrier barrier = new CyclicBarrier(2, () -> assertEquals(value, 3));
-        // Command command = new StatefulAsyncCommandExecutor(() -> {
+        // Command command = new StatefulAsyncCommandWrapper(() -> {
         //     value++;
         //     try {
         //         barrier.await();

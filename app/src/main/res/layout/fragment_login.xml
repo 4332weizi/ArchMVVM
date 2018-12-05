@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     tools:context=".ui.login.LoginActivity">
 
@@ -30,8 +31,8 @@
                 android:layout_height="wrap_content"
                 android:background="@drawable/bg_white_small_corner"
                 android:hint="Username or email"
-                android:lines="1"
                 android:padding="10dp"
+                android:singleLine="true"
                 android:text="@={viewModel.username}"
                 android:textColor="@color/colorTextPrimary"
                 android:textColorHint="@color/colorTextSecondary" />
@@ -43,8 +44,8 @@
                 android:background="@drawable/bg_white_small_corner"
                 android:hint="Password"
                 android:inputType="textPassword"
-                android:lines="1"
                 android:padding="10dp"
+                android:singleLine="true"
                 android:text="@={viewModel.password}"
                 android:textColor="@color/colorTextPrimary"
                 android:textColorHint="@color/colorTextSecondary" />
@@ -59,7 +60,8 @@
                 android:text="Sign in to GitHub"
                 android:textAllCaps="false"
                 android:textColor="@color/colorTextPrimaryInverse"
-                android:textSize="18sp" />
+                android:textSize="18sp"
+                app:clickCommand="@{viewModel.loginCommand}" />
 
         </LinearLayout>
 

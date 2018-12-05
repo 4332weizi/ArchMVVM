@@ -24,7 +24,7 @@ public class LoginFragment extends MvvmFragment<FragmentLoginBinding> {
 
     @Override
     public void registerViewEvents() {
-        getBinding().loginSubmit.setOnClickListener(v -> getBinding().getViewModel().login());
+
     }
 
     @Override
