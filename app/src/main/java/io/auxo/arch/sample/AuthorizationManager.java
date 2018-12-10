@@ -9,6 +9,8 @@ import com.github.api.authorization.AuthorizationProvider;
 
 import java.io.UnsupportedEncodingException;
 
+import io.auxo.arch.sample.exception.AppException;
+
 /**
  * @author Victor Chiu
  */
@@ -48,10 +50,14 @@ public class AuthorizationManager implements AuthorizationProvider, Authorizatio
         isExpiredHandlerEnabled = false;
     }
 
-    public void login(String username, String password) throws UnsupportedEncodingException {
-        String value = username + ":" + password;
-        mAuthorization = Base64.encodeToString(value.getBytes("UTF-8"), Base64.NO_WRAP);
-        mPreferences.edit().putString(USER_AUTHORIZATION_KEY, mAuthorization).commit();
+    public void login(String username, String password) throws AppException {
+        try {
+            String value = username + ":" + password;
+            mAuthorization = Base64.encodeToString(value.getBytes("UTF-8"), Base64.NO_WRAP);
+            mPreferences.edit().putString(USER_AUTHORIZATION_KEY, mAuthorization).commit();
+        } catch (UnsupportedEncodingException e) {
+            throw new AppException("用户名密码格式有误");
+        }
     }
 
     public void logout() {

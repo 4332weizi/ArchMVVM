@@ -6,6 +6,7 @@ import java.io.IOException;
 import java.net.SocketTimeoutException;
 import java.net.UnknownHostException;
 
+import io.auxo.arch.sample.exception.AppException;
 import retrofit2.HttpException;
 
 /**
@@ -37,6 +38,9 @@ public class ErrorParser {
                     break;
             }
             errorMsg.append(message);
+            return true;
+        } else if (throwable instanceof AppException) {
+            errorMsg.append(throwable.getMessage());
             return true;
         }
         errorMsg.append("未知错误");

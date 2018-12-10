@@ -5,17 +5,18 @@ import android.arch.lifecycle.ViewModel;
 import android.databinding.ObservableField;
 import android.text.TextUtils;
 
-import java.io.UnsupportedEncodingException;
+import com.github.api.model.User;
 
-import io.auxo.arch.mvvm.viewmodel.command.Command;
-import io.auxo.arch.mvvm.viewmodel.command.StatefulAsyncCommandWrapper;
 import io.auxo.arch.mvvm.viewmodel.command.StatefulCommand;
-import io.auxo.arch.mvvm.viewmodel.command.StatefulCommandWrapper;
+import io.auxo.arch.mvvm.viewmodel.command.builder.CommandBuilder;
 import io.auxo.arch.mvvm.viewmodel.livedata.LiveEvent;
 import io.auxo.arch.mvvm.viewmodel.livedata.SingleLiveEvent;
 import io.auxo.arch.sample.ErrorParser;
 import io.auxo.arch.sample.GitHubApp;
 import io.auxo.arch.sample.UserManager;
+import io.reactivex.Observable;
+import io.reactivex.ObservableSource;
+import io.reactivex.functions.Function;
 import retrofit2.HttpException;
 
 /**
@@ -30,35 +31,26 @@ public class LoginViewModel extends ViewModel {
 
     private final LiveEvent loginSuccessEvent = new LiveEvent();
 
-    public final StatefulAsyncCommandWrapper loginCommand = new StatefulAsyncCommandWrapper(new Command() {
-
-        @Override
-        public boolean canExecute() {
-            if (TextUtils.isEmpty(username.get())) {
-                message.setValue("请输入用户名");
-                return false;
-            }
-            if (TextUtils.isEmpty(password.get())) {
-                message.setValue("请输入密码");
-                return false;
-            }
-
-            try {
-                GitHubApp.get().getAuthorizationManager().login(username.get(), password.get());
-            } catch (UnsupportedEncodingException e) {
-                e.printStackTrace();
-                message.setValue("用户名密码格式有误");
-                return false;
-            }
-
-            return true;
-        }
-
-        @Override
-        public void execute() {
-            UserManager.get()
-                    .syncUserFromServer()
-                    .doFinally(() -> loginCommand.onExecuteFinish())
+    public final StatefulCommand loginCommand = CommandBuilder.stateful()
+            .async()
+            .dependenceOn(username)
+            .dependenceOn(password)
+            .canExecute(() -> {
+                if (TextUtils.isEmpty(username.get())
+                        || TextUtils.isEmpty(password.get())) {
+                    return false;
+                }
+                return true;
+            })
+            .execute(notifier -> Observable.create(
+                    emitter -> {
+                        GitHubApp.get().getAuthorizationManager().login(username.get(), password.get());
+                        emitter.onNext(new Object());
+                        emitter.onComplete();
+                    })
+                    .flatMap((Function<Object, ObservableSource<User>>) obj ->
+                            UserManager.get().syncUserFromServer())
+                    .doFinally(() -> notifier.notifyExecuteFinish())
                     .subscribe(result -> loginSuccessEvent.call(),
                             throwable -> {
                                 if (throwable instanceof HttpException) {
@@ -68,9 +60,8 @@ public class LoginViewModel extends ViewModel {
                                     }
                                 }
                                 message.setValue(ErrorParser.parse(throwable));
-                            });
-        }
-    });
+                            }))
+            .build();
 
     public LiveData getLoginSuccessEvent() {
         return loginSuccessEvent;

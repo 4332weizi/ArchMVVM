@@ -56,12 +56,12 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:layout_marginBottom="10dp"
-                android:background="@drawable/bg_accent_small_corner"
+                android:background="@drawable/bg_btn_accent_selector"
                 android:text="Sign in to GitHub"
                 android:textAllCaps="false"
                 android:textColor="@color/colorTextPrimaryInverse"
                 android:textSize="18sp"
-                app:clickCommand="@{viewModel.loginCommand}" />
+                app:onClickCommand="@{viewModel.loginCommand}" />
 
         </LinearLayout>
 

@@ -2,8 +2,8 @@
 <resources>
 
     <declare-styleable name="View">
-        <attr name="clickCommand" format="reference" />
-        <attr name="disableOnCommandExecuting" format="boolean" />
+        <attr name="onClickCommand" format="reference" />
+        <attr name="observeCommandState" format="boolean" />
     </declare-styleable>
 
 </resources>

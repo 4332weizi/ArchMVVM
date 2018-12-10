@@ -4,11 +4,11 @@ import android.databinding.BindingAdapter;
 import android.view.View;
 
 import io.auxo.arch.mvvm.viewmodel.command.Command;
-import io.auxo.arch.mvvm.viewmodel.command.StatefulCommandWrapper;
+import io.auxo.arch.mvvm.viewmodel.command.StatefulCommand;
 
 public class ViewBindingAdapter {
 
-    @BindingAdapter("clickCommand")
+    @BindingAdapter("onClickCommand")
     public static void setClickCommand(View view, final Command command) {
         view.setOnClickListener(v -> {
             if (command != null && command.canExecute()) {
@@ -17,17 +17,17 @@ public class ViewBindingAdapter {
         });
     }
 
-    @BindingAdapter("clickCommand")
-    public static void setClickCommand(View view, final StatefulCommandWrapper command) {
+    @BindingAdapter("onClickCommand")
+    public static void setClickCommand(View view, final StatefulCommand command) {
         setClickCommand(view, command, true);
     }
 
-    @BindingAdapter(value = {"clickCommand", "disableOnCommandExecuting"})
-    public static void setClickCommand(View view, final StatefulCommandWrapper command,
-                                       boolean disableOnCommandExecuting) {
+    @BindingAdapter(value = {"onClickCommand", "observeCommandState"})
+    public static void setClickCommand(View view, final StatefulCommand command,
+                                       boolean observeCommandState) {
         setClickCommand(view, (Command) command);
-        if (disableOnCommandExecuting) {
-            view.setEnabled(!command.isExecuting());
+        if (command != null && observeCommandState) {
+            view.setEnabled(command.canExecute());
         }
     }
 }

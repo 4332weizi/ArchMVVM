@@ -16,4 +16,5 @@
     <color name="colorPrimaryDarkRipple">#181a1c</color>
     <color name="colorAccentRipple">#005b9d</color>
     <color name="colorWindowBackgroundRipple">#bcbcbc</color>
+    <color name="colorDarkerGrayRipple">#808080</color>
 </resources>

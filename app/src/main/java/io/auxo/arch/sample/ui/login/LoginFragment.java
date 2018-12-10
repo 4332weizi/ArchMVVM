@@ -1,6 +1,7 @@
 package io.auxo.arch.sample.ui.login;
 
 import android.arch.lifecycle.ViewModelProviders;
+import android.widget.Toast;
 
 import io.auxo.arch.mvvm.view.fragment.MvvmFragment;
 import io.auxo.arch.sample.R;
@@ -29,6 +30,8 @@ public class LoginFragment extends MvvmFragment<FragmentLoginBinding> {
 
     @Override
     public void subscribeViewModelChanges() {
-
+        getBinding().getViewModel().message.observe(this, message -> {
+            Toast.makeText(getContext(), message, Toast.LENGTH_LONG).show();
+        });
     }
 }
