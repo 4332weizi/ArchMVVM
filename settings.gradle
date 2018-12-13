@@ -1,1 +1,1 @@
-include ':app', ':arch-mvvm', ':github-api'
+include ':app', ':arch-mvvm', ':github-api', ':bindingadapter-glide'
