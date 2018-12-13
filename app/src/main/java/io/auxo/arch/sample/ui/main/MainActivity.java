@@ -1,7 +1,9 @@
 package io.auxo.arch.sample.ui.main;
 
+import android.databinding.DataBindingUtil;
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
+import android.view.LayoutInflater;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -9,7 +11,9 @@ import java.util.List;
 
 import io.auxo.arch.mvvm.view.activity.MvvmActivity;
 import io.auxo.arch.sample.R;
+import io.auxo.arch.sample.UserManager;
 import io.auxo.arch.sample.databinding.ActivityMainBinding;
+import io.auxo.arch.sample.databinding.NavigationHeaderBinding;
 import io.auxo.arch.sample.ui.dashboard.DashboardFragment;
 import io.auxo.arch.sample.ui.issues.IssuesFragment;
 import io.auxo.arch.sample.ui.pullrequests.PullRequestsFragment;
@@ -24,6 +28,8 @@ public class MainActivity extends MvvmActivity<ActivityMainBinding> {
 
     private FragmentPagerAdapter mPagerAdapter;
 
+    private NavigationHeaderBinding mNavigationBinding;
+
     @Override
     public int getContentLayoutId() {
         return R.layout.activity_main;
@@ -33,6 +39,7 @@ public class MainActivity extends MvvmActivity<ActivityMainBinding> {
     public void onBindingCreated(@NonNull ActivityMainBinding binding) {
         super.onBindingCreated(binding);
         initFragments();
+        initNavigationViewHeader();
         mPagerAdapter = new FragmentPagerAdapter(getSupportFragmentManager(), mFragments, mPageTitles);
         binding.mainNavPager.setAdapter(mPagerAdapter);
         // bind tabs to viewpager
@@ -46,7 +53,13 @@ public class MainActivity extends MvvmActivity<ActivityMainBinding> {
 
     @Override
     public void registerViewEvents() {
-
+        getBinding().navView.setNavigationItemSelectedListener(
+                menuItem -> {
+                    menuItem.setCheckable(true);//设置选项可选
+                    menuItem.setChecked(true);//设置选型被选中
+                    getBinding().drawerLayout.closeDrawers();//关闭侧边菜单栏
+                    return true;
+                });
     }
 
     @Override
@@ -60,5 +73,12 @@ public class MainActivity extends MvvmActivity<ActivityMainBinding> {
         Collections.addAll(mPageTitles, "Dashboard", "Pull requests", "Issues");
         Collections.addAll(mFragments, new DashboardFragment(), new PullRequestsFragment(),
                 new IssuesFragment());
+    }
+
+    private void initNavigationViewHeader() {
+        mNavigationBinding = DataBindingUtil.inflate(LayoutInflater.from(this),
+                R.layout.navigation_header, null, false);
+        mNavigationBinding.setViewModel(UserManager.get().getUser());
+        getBinding().navView.addHeaderView(mNavigationBinding.getRoot());
     }
 }

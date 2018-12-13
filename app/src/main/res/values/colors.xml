@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#202326</color>
-    <color name="colorPrimaryDark">#202326</color>
+    <color name="colorPrimary">#24292e</color>
+    <color name="colorPrimary_alpha_12">#1e24292e</color>
+    <color name="colorPrimaryInverse">#fafafa</color>
+    <color name="colorPrimaryInverse_alpha_12">#1efafafa</color>
+    <color name="colorPrimaryDark">#1e2327</color>
     <color name="colorAccent">#0079d1</color>
     <color name="colorWindowBackground">#fafafa</color>
     <color name="colorTextPrimary">#24292e</color>
@@ -11,10 +14,11 @@
     <color name="colorTextSecondaryInverse">#bfffffff</color>
     <color name="colorTextTertiaryInverse">#d1d5da</color>
     <color name="colorTextHint">#d1d5da</color>
-    <color name="colorWhiteRipple">#c0c0c0</color>
-    <color name="colorPrimaryRipple">#181a1c</color>
-    <color name="colorPrimaryDarkRipple">#181a1c</color>
-    <color name="colorAccentRipple">#005b9d</color>
-    <color name="colorWindowBackgroundRipple">#bcbcbc</color>
-    <color name="colorDarkerGrayRipple">#808080</color>
+    <color name="colorPrimaryInverse_alpha_26">#42fafafa</color>
+    <color name="colorWhite_alpha_26">#42ffffff</color>
+    <color name="colorPrimary_alpha_26">#4224292e</color>
+    <color name="colorPrimaryDark_alpha_26">#421e2327</color>
+    <color name="colorAccent_alpha_26">#420079d1</color>
+    <color name="colorWindowBackground_alpha_26">#42fafafa</color>
+    <color name="colorDarkerGray_alpha_26">#42aaaaaa</color>
 </resources>

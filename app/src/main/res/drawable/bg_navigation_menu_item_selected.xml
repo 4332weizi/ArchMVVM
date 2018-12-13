@@ -1,9 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ripple xmlns:android="http://schemas.android.com/apk/res/android"
-    android:color="@color/colorWhiteRipple">
-    <item>
+    android:color="@color/colorPrimary_alpha_26">
+    <item
+        android:bottom="2dp"
+        android:left="4dp"
+        android:right="4dp"
+        android:top="2dp">
         <shape android:shape="rectangle">
-            <solid android:color="@android:color/white" />
+            <solid android:color="@color/colorPrimary_alpha_12" />
             <stroke
                 android:width="0px"
                 android:color="@android:color/transparent" />

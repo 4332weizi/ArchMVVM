@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">GitHub</string>
+    <string name="nav_dashboard">Dashboard</string>
+    <string name="nav_pull_requests">Pull requests</string>
+    <string name="nav_issues">Issues</string>
+    <string name="nav_marketplace">Marketplace</string>
+    <string name="nav_explore">Explore</string>
 </resources>

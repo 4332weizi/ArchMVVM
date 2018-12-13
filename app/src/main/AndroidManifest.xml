@@ -19,7 +19,7 @@
         </activity>
         <activity
             android:name=".ui.main.MainActivity"
-            android:theme="@style/AppTheme.NoTitle" />
+            android:theme="@style/AppTheme.NoTitle.TranslucentStatus" />
     </application>
 
 </manifest>

@@ -11,9 +11,9 @@ import android.widget.RelativeLayout;
 import io.auxo.arch.mvvm.view.activity.MvvmActivity;
 import io.auxo.arch.sample.R;
 import io.auxo.arch.sample.databinding.ActivitySplashBinding;
-import io.auxo.arch.sample.ui.main.MainActivity;
 import io.auxo.arch.sample.ui.login.LoginFragment;
 import io.auxo.arch.sample.ui.login.LoginViewModel;
+import io.auxo.arch.sample.ui.main.MainActivity;
 
 /**
  * @author Victor Chiu
@@ -72,7 +72,10 @@ public class SplashActivity extends MvvmActivity<ActivitySplashBinding> {
             mLoginViewModel = ViewModelProviders.of(mLoginFragment)
                     .get(LoginViewModel.class);
             mLoginViewModel.getLoginSuccessEvent()
-                    .observe(this, nul1 -> navigateMain());
+                    .observe(this, nul1 -> {
+                        navigateMain();
+                        finish();
+                    });
         }
     }
 

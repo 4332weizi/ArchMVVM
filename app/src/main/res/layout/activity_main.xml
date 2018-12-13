@@ -7,43 +7,71 @@
 
     </data>
 
-    <LinearLayout
+    <android.support.v4.widget.DrawerLayout
+        android:id="@+id/drawer_layout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
-        tools:context="io.auxo.arch.sample.ui.main.MainActivity">
+        android:fitsSystemWindows="true">
 
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/title_height"
-            android:background="@color/colorPrimary">
-
-            <ImageView
-                android:layout_width="@dimen/title_height"
-                android:layout_height="match_parent"
-                android:layout_centerInParent="true"
-                android:padding="10dp"
-                android:src="@drawable/ic_github_mark_light" />
-
-        </RelativeLayout>
-
-        <android.support.design.widget.TabLayout
-            android:id="@+id/main_nav_menu"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/title_height"
-            android:background="@color/colorPrimary"
-            app:tabIndicatorColor="@color/colorTextPrimaryInverse"
-            app:tabIndicatorHeight="2dp"
-            app:tabSelectedTextColor="@color/colorTextPrimaryInverse"
-            app:tabTextAppearance="@style/AppTheme.TextAppearance.Tab"
-            app:tabTextColor="@color/colorTextTertiaryInverse" />
-
-        <android.support.v4.view.ViewPager
-            android:id="@+id/main_nav_pager"
+        <FrameLayout
+            android:id="@+id/content_frame"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-        </android.support.v4.view.ViewPager>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                tools:context="io.auxo.arch.sample.ui.main.MainActivity">
 
-    </LinearLayout>
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/title_height"
+                    android:background="@color/colorPrimary">
+
+                    <ImageView
+                        android:layout_width="@dimen/title_height"
+                        android:layout_height="match_parent"
+                        android:layout_centerInParent="true"
+                        android:padding="10dp"
+                        android:src="@drawable/ic_github_mark_light" />
+
+                </RelativeLayout>
+
+                <android.support.design.widget.TabLayout
+                    android:id="@+id/main_nav_menu"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/title_height"
+                    android:background="@color/colorPrimary"
+                    android:theme="@style/AppTheme.Highlight.Inverse"
+                    app:tabIndicatorColor="@color/colorTextPrimaryInverse"
+                    app:tabIndicatorHeight="2dp"
+                    app:tabSelectedTextColor="@color/colorTextPrimaryInverse"
+                    app:tabTextAppearance="@style/AppTheme.TextAppearance.Tab"
+                    app:tabTextColor="@color/colorTextTertiaryInverse" />
+
+                <android.support.v4.view.ViewPager
+                    android:id="@+id/main_nav_pager"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                </android.support.v4.view.ViewPager>
+
+            </LinearLayout>
+        </FrameLayout>
+
+        <android.support.design.widget.NavigationView
+            android:id="@+id/nav_view"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="start"
+            android:background="@android:color/white"
+            android:fitsSystemWindows="true"
+            android:theme="@style/AppTheme.Highlight.NONE"
+            app:itemBackground="@drawable/bg_navigation_menu_item_selector"
+            app:itemTextColor="@drawable/color_navigation_menu_item_text_selector"
+            app:menu="@menu/menu_drawer" />
+
+    </android.support.v4.widget.DrawerLayout>
+
 </layout>

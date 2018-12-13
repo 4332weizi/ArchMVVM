@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_dashboard"
+            android:checkable="true"
+            android:icon="@drawable/ic_dashboard_light"
+            android:title="@string/nav_dashboard" />
+        <item
+            android:id="@+id/nav_git_pull_requests"
+            android:checkable="true"
+            android:icon="@drawable/ic_git_pull_request_light"
+            android:title="@string/nav_pull_requests" />
+        <item
+            android:id="@+id/nav_issues"
+            android:checkable="true"
+            android:icon="@drawable/ic_issue_opened_light"
+            android:title="@string/nav_issues" />
+        <item
+            android:id="@+id/nav_marketplace"
+            android:checkable="true"
+            android:icon="@drawable/ic_globe_light"
+            android:title="@string/nav_marketplace" />
+        <item
+            android:id="@+id/nav_explore"
+            android:checkable="true"
+            android:icon="@drawable/ic_telescope_light"
+            android:title="@string/nav_explore" />
+    </group>
+</menu>
