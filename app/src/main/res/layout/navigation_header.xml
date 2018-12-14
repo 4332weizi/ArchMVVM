@@ -1,8 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+
+        <import type="io.auxo.bindingadapters.GlideConfig" />
+
+        <import type="io.auxo.arch.sample.util.GlideTransformations" />
 
         <variable
             name="viewModel"
@@ -22,7 +27,8 @@
             android:layout_height="68dp"
             android:layout_centerInParent="true"
             android:layout_marginTop="20dp"
-            android:src="@mipmap/ic_launcher" />
+            android:src="@{viewModel.avatarUrl}"
+            app:options="@{GlideConfig.newOptions().circleCrop()}" />
 
         <TextView
             android:layout_width="match_parent"

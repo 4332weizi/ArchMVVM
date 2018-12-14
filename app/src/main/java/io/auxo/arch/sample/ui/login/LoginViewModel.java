@@ -11,7 +11,7 @@ import io.auxo.arch.mvvm.viewmodel.command.StatefulCommand;
 import io.auxo.arch.mvvm.viewmodel.command.builder.CommandBuilder;
 import io.auxo.arch.mvvm.viewmodel.livedata.LiveEvent;
 import io.auxo.arch.mvvm.viewmodel.livedata.SingleLiveEvent;
-import io.auxo.arch.sample.ErrorParser;
+import io.auxo.arch.sample.util.ErrorParser;
 import io.auxo.arch.sample.GitHubApp;
 import io.auxo.arch.sample.UserManager;
 import io.reactivex.Observable;

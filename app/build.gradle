@@ -45,6 +45,10 @@ dependencies {
     androidTestImplementation "com.android.support.test:runner:$versions.runner"
     androidTestImplementation "com.android.support.test.espresso:espresso-core:$versions.espresso_core"
 
+    // Glide Transformations
+    implementation 'jp.wasabeef:glide-transformations:4.0.1'
+
     implementation project(':arch-mvvm')
     implementation project(':github-api')
+    implementation project(':bindingadapter-glide')
 }

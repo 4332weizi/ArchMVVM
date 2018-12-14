@@ -41,7 +41,7 @@ public class SingleLiveEvent<T> extends LiveEvent<T> {
     @Override
     @MainThread
     public void setValue(@Nullable T t) {
-        if (ThreadUtil.isMainThread()) {
+        if (ThreadUtil.isOnMainThread()) {
             mPending.set(true);
             super.setValue(t);
         } else {

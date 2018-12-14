@@ -1,4 +1,4 @@
-package io.auxo.arch.sample;
+package io.auxo.arch.sample.util;
 
 import com.google.gson.JsonSyntaxException;
 

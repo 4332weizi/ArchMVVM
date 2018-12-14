@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <declare-styleable name="ImageView">
+        <attr name="url" format="reference" />
+        <attr name="URL" format="reference" />
+        <attr name="uri" format="reference" />
+        <attr name="bitmap" format="reference" />
+        <attr name="drawable" format="reference" />
+        <attr name="res" format="reference" />
+        <attr name="file" format="reference" />
+        <attr name="bytes" format="reference" />
+        <attr name="placeholder" format="reference" />
+        <attr name="error" format="reference" />
+        <attr name="fallback" format="reference" />
+        <attr name="options" format="reference" />
+    </declare-styleable>
+
+</resources>

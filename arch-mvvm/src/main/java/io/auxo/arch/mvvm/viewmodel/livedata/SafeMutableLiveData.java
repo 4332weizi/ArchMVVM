@@ -13,7 +13,7 @@ public class SafeMutableLiveData<T> extends MutableLiveData<T> {
 
     @Override
     public void setValue(T value) {
-        if (ThreadUtil.isMainThread()) {
+        if (ThreadUtil.isOnMainThread()) {
             super.setValue(value);
         } else {
             postValue(value);

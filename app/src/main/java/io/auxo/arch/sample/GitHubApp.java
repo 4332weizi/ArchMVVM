@@ -20,7 +20,7 @@ public class GitHubApp extends Application {
         GitHubApi.init(mAuthorizationManager, mAuthorizationManager);
     }
 
-    public AuthorizationManager getAuthorizationManager(){
+    public AuthorizationManager getAuthorizationManager() {
         return mAuthorizationManager;
     }
 

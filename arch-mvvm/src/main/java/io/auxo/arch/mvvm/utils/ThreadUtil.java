@@ -8,12 +8,28 @@ import android.os.Looper;
  */
 public class ThreadUtil {
 
-    public static boolean isMainThread() {
-        return Thread.currentThread().equals(Looper.getMainLooper().getThread());
+    public static void assertMainThread() {
+        if (!isOnMainThread()) {
+            throw new IllegalArgumentException("You must call this method on the main thread");
+        }
+    }
+
+    public static void assertBackgroundThread() {
+        if (!isOnBackgroundThread()) {
+            throw new IllegalArgumentException("You must call this method on a background thread");
+        }
+    }
+
+    public static boolean isOnMainThread() {
+        return Looper.myLooper() == Looper.getMainLooper();
+    }
+
+    public static boolean isOnBackgroundThread() {
+        return !isOnMainThread();
     }
 
     public static void runOnMainThread(Runnable runnable) {
-        if (isMainThread()) {
+        if (isOnMainThread()) {
             runnable.run();
         } else {
             new Handler(Looper.getMainLooper()).post(runnable);
