@@ -1,6 +1,6 @@
 package io.auxo.arch.mvvm.viewmodel.command;
 
-import android.databinding.Observable;
+import androidx.databinding.Observable;
 
 import io.auxo.arch.mvvm.utils.Objects;
 

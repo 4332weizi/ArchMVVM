@@ -1,8 +1,8 @@
 package io.auxo.arch.mvvm.view;
 
-import android.databinding.ViewDataBinding;
-import android.support.annotation.LayoutRes;
-import android.support.annotation.NonNull;
+import androidx.databinding.ViewDataBinding;
+import androidx.annotation.LayoutRes;
+import androidx.annotation.NonNull;
 
 /**
  * MVVM中View层接口

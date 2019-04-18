@@ -1,7 +1,7 @@
 package io.auxo.arch.sample.ui.splash;
 
-import android.arch.lifecycle.LiveData;
-import android.arch.lifecycle.ViewModel;
+import androidx.lifecycle.LiveData;
+import androidx.lifecycle.ViewModel;
 
 import io.auxo.arch.mvvm.viewmodel.livedata.SingleLiveEvent;
 import io.auxo.arch.sample.GitHubApp;

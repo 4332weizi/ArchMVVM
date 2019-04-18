@@ -1,6 +1,6 @@
 package io.auxo.arch.mvvm.viewmodel.livedata;
 
-import android.arch.lifecycle.MutableLiveData;
+import androidx.lifecycle.MutableLiveData;
 
 import io.auxo.arch.mvvm.utils.ThreadUtil;
 

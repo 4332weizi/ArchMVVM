@@ -9,7 +9,7 @@ android {
         versionCode 1
         versionName "1.0"
 
-        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
     dataBinding {
@@ -29,8 +29,8 @@ dependencies {
 
     // Test
     testImplementation "junit:junit:$versions.junit"
-    androidTestImplementation "com.android.support.test:runner:$versions.runner"
-    androidTestImplementation "com.android.support.test.espresso:espresso-core:$versions.espresso_core"
+    androidTestImplementation "androidx.test:runner:$versions.runner"
+    androidTestImplementation "androidx.test.espresso:espresso-core:$versions.espresso_core"
 
     api "com.github.bumptech.glide:glide:$versions.glide"
     annotationProcessor "com.github.bumptech.glide:compiler:$versions.glide"

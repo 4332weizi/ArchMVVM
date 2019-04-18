@@ -1,8 +1,8 @@
 package io.auxo.arch.sample.ui.login;
 
-import android.arch.lifecycle.LiveData;
-import android.arch.lifecycle.ViewModel;
-import android.databinding.ObservableField;
+import androidx.lifecycle.LiveData;
+import androidx.lifecycle.ViewModel;
+import androidx.databinding.ObservableField;
 import android.text.TextUtils;
 
 import com.github.api.model.User;

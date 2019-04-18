@@ -1,7 +1,7 @@
 package io.auxo.arch.mvvm.viewmodel.command;
 
-import android.databinding.BaseObservable;
-import android.databinding.Observable;
+import androidx.databinding.BaseObservable;
+import androidx.databinding.Observable;
 
 import java.util.concurrent.atomic.AtomicBoolean;
 

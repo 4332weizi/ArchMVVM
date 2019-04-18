@@ -1,6 +1,6 @@
 package io.auxo.arch.sample.ui.login;
 
-import android.arch.lifecycle.ViewModelProviders;
+import androidx.lifecycle.ViewModelProviders;
 import android.widget.Toast;
 
 import io.auxo.arch.mvvm.view.fragment.MvvmFragment;

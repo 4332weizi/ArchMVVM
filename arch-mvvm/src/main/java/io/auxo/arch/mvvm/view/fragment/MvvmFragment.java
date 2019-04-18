@@ -1,12 +1,12 @@
 package io.auxo.arch.mvvm.view.fragment;
 
-import android.databinding.ViewDataBinding;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import androidx.annotation.NonNull;
+import androidx.databinding.ViewDataBinding;
 import io.auxo.arch.mvvm.view.ViewOwner;
 import io.auxo.arch.mvvm.view.ViewOwnerHelper;
 

@@ -1,6 +1,6 @@
 package io.auxo.arch.mvvm.viewmodel.command.builder;
 
-import android.databinding.Observable;
+import androidx.databinding.Observable;
 
 import java.util.HashSet;
 import java.util.Set;

@@ -1,6 +1,6 @@
 package io.auxo.arch.mvvm.view.adapter;
 
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 import android.widget.BaseAdapter;
 
 import java.util.Collection;

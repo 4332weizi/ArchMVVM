@@ -9,7 +9,7 @@ android {
         targetSdkVersion versions.targetSdk
         versionCode 1
         versionName "1.0"
-        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
     dataBinding {
@@ -33,21 +33,21 @@ dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
     // Support Library
-    api "com.android.support:appcompat-v7:$versions.supportLibrary"
-    api "com.android.support:support-v4:$versions.supportLibrary"
-    api "com.android.support:recyclerview-v7:$versions.supportLibrary"
+    api "androidx.appcompat:appcompat:$versions.supportLibrary"
+    api "androidx.legacy:legacy-support-v4:$versions.supportLibrary"
+    api "androidx.recyclerview:recyclerview:$versions.supportLibrary"
 
     // Architecture Components
-    api "android.arch.persistence.room:runtime:$versions.room"
-    annotationProcessor "android.arch.persistence.room:compiler:$versions.room"
-    api "android.arch.lifecycle:extensions:$versions.lifecycle"
-    annotationProcessor "android.arch.lifecycle:compiler:$versions.lifecycle"
-    api "android.arch.lifecycle:common-java8:$versions.lifecycle"
+    api "androidx.room:room-runtime:$versions.room"
+    annotationProcessor "androidx.room:room-compiler:$versions.room"
+    api "androidx.lifecycle:lifecycle-extensions:$versions.lifecycle"
+    annotationProcessor "androidx.lifecycle:lifecycle-compiler:$versions.lifecycle"
+    api "androidx.lifecycle:lifecycle-common-java8:$versions.lifecycle"
 
     // Test
     testImplementation "junit:junit:$versions.junit"
-    androidTestImplementation "com.android.support.test:runner:$versions.runner"
-    androidTestImplementation "com.android.support.test.espresso:espresso-core:$versions.espresso_core"
+    androidTestImplementation "androidx.test:runner:$versions.runner"
+    androidTestImplementation "androidx.test.espresso:espresso-core:$versions.espresso_core"
 
     // RxJava & RxAndroid
     api "io.reactivex.rxjava2:rxjava:$versions.rxjava"

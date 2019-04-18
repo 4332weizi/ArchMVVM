@@ -1,6 +1,6 @@
 package com.github.api.interceptor;
 
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 
 import com.github.api.authorization.AuthorizationExpiredCallback;
 import com.github.api.authorization.AuthorizationProvider;

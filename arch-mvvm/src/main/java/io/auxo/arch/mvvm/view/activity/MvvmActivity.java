@@ -1,8 +1,8 @@
 package io.auxo.arch.mvvm.view.activity;
 
-import android.databinding.ViewDataBinding;
+import androidx.databinding.ViewDataBinding;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 
 import io.auxo.arch.mvvm.view.ViewOwner;
 import io.auxo.arch.mvvm.view.ViewOwnerHelper;

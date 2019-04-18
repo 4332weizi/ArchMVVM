@@ -1,6 +1,6 @@
 package io.auxo.arch.mvvm.view.bindingadapters;
 
-import android.databinding.BindingAdapter;
+import androidx.databinding.BindingAdapter;
 import android.view.View;
 
 import io.auxo.arch.mvvm.viewmodel.command.Command;
