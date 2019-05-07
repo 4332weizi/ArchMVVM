@@ -34,8 +34,8 @@ dependencies {
 
     // Support Library
     api "androidx.appcompat:appcompat:$versions.supportLibrary"
-    api "androidx.legacy:legacy-support-v4:$versions.supportLibrary"
-    api "androidx.recyclerview:recyclerview:$versions.supportLibrary"
+    api "androidx.legacy:legacy-support-v4:$versions.legacy"
+    api "androidx.recyclerview:recyclerview:$versions.recycler"
 
     // Architecture Components
     api "androidx.room:room-runtime:$versions.room"

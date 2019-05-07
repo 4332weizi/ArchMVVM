@@ -36,8 +36,8 @@ dependencies {
     // Support Library
     implementation "androidx.constraintlayout:constraintlayout:$versions.constraint"
     implementation "androidx.appcompat:appcompat:$versions.supportLibrary"
-    implementation "androidx.legacy:legacy-support-v4:$versions.supportLibrary"
-    implementation "com.google.android.material:material:$versions.supportLibrary"
+    implementation "androidx.legacy:legacy-support-v4:$versions.legacy"
+    implementation "com.google.android.material:material:$versions.material"
 
     // Test Library
     implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
